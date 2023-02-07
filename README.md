@@ -2,7 +2,7 @@
 
 ## Installation
 
-Follow the [documentation](http://https://github.com/Balguardth/ioport-hub)
+Follow the [documentation](https://github.com/Balguardth/ioport-hub)
 for setup instructions and more information.
 
 ## Features
