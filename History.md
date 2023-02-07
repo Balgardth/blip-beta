@@ -63,7 +63,7 @@
 
 2.1.0 / 2023-02-07
 ===================
-  * Refactored the codebase to run with the yarn package manager as a workspace.
+  * Refactored the codebase to run with the Yarn package manager as a workspace.
   * Refactored the IOport Blip modules implementation.  Know using "site docks" to avoid confusion with node_modules.
     - This is revamped for the most part.
   * Updated BlipDynamoTabs to display as expected when using HD video monitors.
