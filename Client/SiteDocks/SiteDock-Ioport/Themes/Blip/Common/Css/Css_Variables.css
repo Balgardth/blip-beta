@@ -1,0 +1,65 @@
+/* #region colors */
+:root{
+
+    --font-family: "Lato Regular", Helvetica, Arial, sans-serif;
+    --adj-toc-heading-width: 685px;
+
+    /* Compensates for some touch screen browser's white bottom bar on initial scroll */
+    --screen-bottom-touch: 47px;
+
+    /* Reds */
+    --color-ultralight-red: rgb(255, 247, 246);
+    --color-mid-red: rgb(236, 116, 102);
+    --color-mid-dark-red: rgb(219, 87, 73);
+    --color-dark-red: #E81600;
+  
+    /* Purples */
+    --color-highlight-purple: rgb(255, 0, 174);
+    --color-ultralight-purple: #fefaff;
+    --color-light-purple: #f7e9ff;
+    --color-mid-purple: #ac61bb;
+    --color-mid-dark-purple: #6a2c82;
+    --color-dark-purple: #451c55;
+  
+    /* Blues */
+    --color-highlight-blue: rgb(0, 217, 255);
+    --color-ultralight-blue: rgb(246, 254, 255);
+    --color-light-blue: rgb(208, 245, 252);
+    --color-mid-blue: rgb(96, 201, 219);
+    --color-dark-blue: rgb(49, 158, 177);
+    --color-extradark-blue: rgb(2, 99, 116);
+    --color-mid-blue-grey: rgb(94, 105, 138);
+    --color-mid-blue-beige-grey: #8d94aa;
+  
+    /* Greens */
+    --color-ultralight-green: rgb(251, 255, 244);  
+    --color-mid-green: rgb(128, 201, 3);
+  
+    /* Greys - Background */
+    --color-mid-grey: rgb(128, 128, 129);
+    --color-dark-grey: #181B21;
+  
+    --color-transparent: rgba(0, 0, 0, 0);
+    --color-trans-grey-red-1: rgba(156, 105, 105, 0.1);
+    --color-trans-grey-red-4: rgba(156, 105, 105, 0.4);
+    --color-trans-light-grey-red-5: rgba(255, 255, 255, 0.8);
+    --color-trans-mid-blue-grey-1: rgba(94, 105, 138, 0.1);
+    --color-trans-mid-blue-grey-2: rgba(94, 105, 138, 0.2);
+    --color-trans-mid-blue-grey-3: rgba(94, 105, 138, 0.3);
+    --color-trans-mid-blue-grey-5: rgba(94, 105, 138, 0.5);
+    --color-trans-mid-blue-grey-6: rgba(94, 105, 138, 0.6);
+    --color-trans-mid-blue-grey-7: rgba(94, 105, 138, 0.7);
+    --color-trans-mid-blue-grey-8: rgba(94, 105, 138, 0.8);
+    --color-trans-dark-blue-grey-1: rgba(43, 47, 61, 0.1);
+    --color-trans-dark-blue-grey-6: rgba(43, 47, 61, 0.6);
+    --color-trans-dark-blue-grey-10: rgba(43, 47, 61, 1);
+    --color-trans-highlight-blue-white-10: rgba(130, 236, 255, 1);
+    --color-trans-highlight-blue-white-1: rgba(130, 236, 255, 0.1);
+    --color-trans-highlight-yellow-white-1: rgba(255, 232, 130, 0.2);
+  
+    --color-off-white: #fffefb;
+    --color-off-white-blue: #fafbff;
+    --color-off-white-green: #fafffd;
+  }
+  /* #endregion colors */
+  

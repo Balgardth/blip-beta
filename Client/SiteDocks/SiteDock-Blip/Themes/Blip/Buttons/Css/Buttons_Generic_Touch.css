@@ -1,0 +1,352 @@
+/* #region touch compensation */
+@media all {
+  .bullet-link-generic-text-wrapper{
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 8px;
+    padding-left: 8px;
+  }
+  .bullet-link-level-0-server-text-wrapper{
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 8px;
+    padding-left: 8px;
+  }
+  .bullet-link-level-0-client-text-wrapper{
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 8px;
+    padding-left: 8px;
+  }
+  .button-link-color-docs-bullet-level-1:hover{
+    background-color: var(--color-off-white-green);
+    border-left: 1px solid var(--color-dark-grey);
+    border-right: 1px solid var(--color-dark-grey);
+    padding-right: 0px;
+    padding-left: 0px;
+    color: var(--color-mid-grey);
+    box-shadow: none;
+  }
+  .button-link-color-docs-bullet-level-0-server{
+    left: 0px;
+    padding-left: 38px;
+  }
+  .button-link-color-docs-bullet-level-0-server:hover{
+    margin: 0px;
+    padding-right: 0px;
+    padding-left: 38px;
+  }
+  .button-link-color-docs-bullet-level-0-client{
+    left: 0px;
+    padding-left: 38px;
+  }
+  .button-link-color-docs-bullet-level-0-client:hover{
+    margin: 0px;
+    padding-right: 0px;
+    padding-left: 38px;
+  }
+  .button-section-toc-contract{
+    background-size: 12px;
+    background-position: 2px 6px;
+    width: 16px;
+    height: 16px;
+    top: 4px;
+    left: 6px;
+  }
+  .button-section-toc-contract:hover{
+    background-image: url(/Assets/Themes/Blip/Images/Icon-Hide.svg);
+    background-repeat: no-repeat;
+    background-size: 12px;
+    background-position: 2px 6px;
+    width: 16px;
+    height: 16px;
+    top: 4px;
+    left: 6px;
+  }
+  .button-section-toc-bar-contract{
+    background-size: 12px;
+    background-position: 2px 6px;
+    width: 16px;
+    height: 16px;
+    top: 8px;
+    left: 10px;
+  }
+  .button-section-toc-bar-contract:hover{
+    background-image: url(/Assets/Themes/Blip/Images/Icon-Hide.svg);
+    background-repeat: no-repeat;
+    background-size: 12px;
+    background-position: 2px 6px;
+    width: 16px;
+    height: 16px;
+    top: 8px;
+    left: 10px;
+  }
+  .button-section-toc-bar-cat-contract{
+    background-size: 12px;
+    background-position: 2px 6px;
+    width: 16px;
+    height: 16px;
+    top: 4px;
+    left: 6px;
+  }
+  .button-section-toc-bar-cat-contract:hover{
+    background-image: url(/Assets/Themes/Blip/Images/Icon-Hide.svg);
+    background-repeat: no-repeat;
+    background-size: 12px;
+    background-position: 2px 6px;
+    width: 16px;
+    height: 16px;
+    top: 4px;
+    left: 6px;
+  }
+  .button-section-toc-bar-cat-expand{
+    background-image: url(/Assets/Themes/Blip/Images/Icon-Show.svg);
+    background-repeat: no-repeat;
+    background-size: 12px;
+    background-position: 3px 4px;
+    width: 16px;
+    height: 16px;
+    top: 5px;
+    left: 5px;
+  }
+  .button-section-toc-bar-cat-expand:hover{
+    background-image: url(/Assets/Themes/Blip/Images/Icon-Show.svg);;
+    background-repeat: no-repeat;
+    background-size: 12px;
+    background-position: 3px 4px;
+    width: 16px;
+    height: 16px;
+    top: 5px;
+    left: 5px;
+  }
+  .button-section-toc-contract-all{
+    background-size: 20px 12px;
+    background-position: 4px 4px;
+    width: 25px;
+    height: 16px;
+    top: 4px;
+    left: 6px;
+  }
+  .button-section-toc-contract-all:hover{
+    background-image: url(/Assets/Themes/Blip/Images/Icon-Hide-All.svg);
+    background-repeat: no-repeat;
+    background-size: 20px 12px;
+    background-position: 4px 4px;
+    width: 25px;
+    height: 16px;
+    top: 4px;
+    left: 6px;
+  }
+  .button-section-toc-expand{
+    background-size: 12px;
+    background-position: 2px 6px;
+    width: 16px;
+    height: 16px;
+    top: 4px;
+    left: 6px;
+  }
+  .button-section-toc-expand:hover{
+    background-image: url(/Assets/Themes/Blip/Images/Icon-Show.svg);
+    background-repeat: no-repeat;
+    background-size: 12px;
+    background-position: 2px 6px;
+    width: 16px;
+    height: 16px;
+    top: 4px;
+    left: 6px;
+  }
+  .button-section-toc-bar-expand{
+    background-size: 12px;
+    background-position: 2px 6px;
+    width: 16px;
+    height: 16px;
+    top: 8px;
+    left: 10px;
+  }
+  .button-section-toc-bar-expand:hover{
+    background-image: url(/Assets/Themes/Blip/Images/Icon-Show.svg);
+    background-repeat: no-repeat;
+    background-size: 12px;
+    background-position: 2px 6px;
+    width: 16px;
+    height: 16px;
+    top: 8px;
+    left: 10px;
+  }
+  .button-section-toc-expand-all{
+    background-size: 20px 12px;
+    background-position: 4px 4px;
+    width: 25px;
+    height: 16px;
+    top: 4px;
+    left: 6px;
+  }
+  .button-section-toc-expand-all:hover{
+    background-image: url(/Assets/Themes/Blip/Images/Icon-Show-All.svg);
+    background-repeat: no-repeat;
+    background-size: 20px 12px;
+    background-position: 4px 4px;
+    width: 25px;
+    height: 16px;
+    top: 4px;
+    left: 6px;
+  }
+  .button-section-toc-expand-contract-wrapper{
+    width: 28px;
+    height: 28px;
+  }
+  .button-section-toc-expand-contract-wrapper:hover{
+    background-color: white;
+  }
+  .button-section-toc-expand-contract-all-wrapper{
+    width: 40px;
+    height: 28px;
+  }
+  .button-section-toc-expand-contract-all-wrapper:hover{
+    background-color: white;
+  }
+  .button-section-expand-contract-wrapper{
+    border: none;
+    border-right: 1px solid var(--color-dark-grey);
+    border-radius: 0px;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+    background-color: white;
+    width: 38px;
+    height: 38px;
+    top: 4px;
+    left: 3px;
+    visibility: visible;
+  }
+  .button-section-expand-contract-wrapper:hover{
+    background-image: none;
+    background-color: white;
+    width: 38px;
+    height: 38px;
+    top: 3px;
+    left: 2px;
+  }
+  .button-bullet-expand-contract-pre-wrapper{
+    width: 24px;
+    height: 20px;
+    left: -35px;
+    top: 2px;
+    visibility: visible;
+  }
+  .button-bullet-expand-contract-wrapper{
+    margin-top: 2px;
+    width: 28px;
+    height: 28px;
+  }
+  .button-bullet-expand-contract-wrapper:hover{
+    background-color: white;
+  }
+  .button-section-return-to-origin-category-wrapper{
+    margin-top: 0px;
+    padding-left: 4px;
+    padding-top: 3px;
+    background-position: 7px 8px;
+    width: 22px;
+    height: 22px;
+  }
+  .button-section-return-to-origin-category-wrapper:hover{
+    background-image: url(/Assets/Themes/Blip/Images/Return-To-Index.svg);
+    background-position: 7px 8px;
+    background-color: white;
+    color: var(--color-mid-grey);
+  }
+  .button-section-return-to-origin-header-wrapper{
+    margin-top: -26px;
+    background-position: 7px 8px;
+    width: 26px;
+    height: 26px;
+  }
+  .button-section-return-to-origin-header-wrapper:hover{
+    background-image: url(/Assets/Themes/Blip/Images/Return-To-Index.svg);
+    background-position: 7px 8px;
+    background-color: white;
+    color: var(--color-mid-grey);
+  }
+  .button-section-return-to-origin{
+    display: inline;
+    font-size: 16pt;
+    right: 5px;
+    position: absolute;
+  }
+  .button-return-to-top{
+    background-position: 7px 8px;
+    right: -37px;
+  }
+  .button-return-to-top-icon:hover{ 
+    background-color: white;
+    background-image: url(/Assets/Themes/Blip/Images/Icon-Return-To-Top.svg);
+    background-repeat: no-repeat;
+    background-size: 14px;
+    background-position: 6px 6px;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;  
+  }
+  .button-return-to-top-wrapper:hover{
+    animation-name: none;
+    animation-duration: none;
+    bottom: calc(var(--screen-bottom-touch) + 0px);
+  }  
+  .scroll-footer-nav-wrapper:hover{
+    animation-name: none;
+    animation-duration: none;
+    bottom: calc(var(--screen-bottom-touch) + 0px);
+  }
+  .scroll-footer-nav-wrapper-bounce-trigger{
+    bottom: calc(var(--screen-bottom-touch) + 12px);
+  }
+  .scroll-footer-nav-wrapper-bounce-trigger:hover{
+    bottom: calc(var(--screen-bottom-touch) + 12px);
+  }
+  .scroll-footer-nav-wrapper-bounce{
+    bottom: calc(var(--screen-bottom-touch) + 0px);
+  }
+  @keyframes scroll-footer-nav-wrapper-bounce-anim{
+    from{bottom: calc(var(--screen-bottom-touch) + 12px);}
+    to{bottom: calc(var(--screen-bottom-touch) + 0px)};
+  }
+  .scroll-footer-nav-wrapper-retract{
+    animation-name: scroll-footer-nav-wrapper-retract-anim;
+    animation-duration: 0.2s;
+    bottom: calc(var(--screen-bottom-touch) + -36px);
+    visibility: visible;
+  }
+  @keyframes scroll-footer-nav-wrapper-retract-anim{
+    from{bottom: calc(var(--screen-bottom-touch) + 12px);}
+    to{bottom: calc(var(--screen-bottom-touch) + -36px)};
+  }
+}
+@media all and (min-width: 685px){
+  .button-link-color-docs-bullet-level-0-wrapper{
+    padding: 1px;
+    left: -40px;
+  }
+  .heading-link-color-docs-bullet-level-0-wrapper{
+    padding: 1px;
+    left: -40px;
+  }
+  .button-link-color-docs-bullet-level-0-server{
+    left: 0px;
+  }
+  .button-link-color-docs-bullet-level-0-client{
+    left: 0px;
+  }
+  .section-header-general-text-wrapper{
+    left: 0px;
+  }
+  .section-header-server-text-wrapper{
+    left: 0px;
+  }
+  .section-header-client-text-wrapper{
+    left: 0px;
+  }
+}
+/* #endregion touch */

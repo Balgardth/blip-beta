@@ -1,0 +1,1 @@
+This directory is used for IOport site dock additions exclusively.

@@ -1,0 +1,45 @@
+.heading-link-color-docs-bullet-level-0-wrapper{
+  left: -25px;
+  padding-left: 0px;
+}
+.section-header-general-text-wrapper{
+  left: 0px;
+}
+.section-header-server-text-wrapper{
+  left: 0px;
+}
+.section-header-client-text-wrapper{
+  left: 0px;
+}
+.body-contents{
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
+}
+@media all and (min-width: 685px){  
+  .heading-link-color-docs-bullet-level-0-wrapper{
+    padding: 1px;
+    left: -40px;
+  }  
+}
+/* #region screen size compensation */
+@media all and (max-width: 659px){
+  .body-contents-container{
+    margin-left: 12px;
+  }
+}
+@media all and (max-width: 638px){
+  .body-contents-container{
+    margin-left: 0px;
+  }
+}
+@media all and (max-width: 646px){
+  .body-contents-container{
+    padding-right: 2px;
+  }
+}
+@media all and (max-width: 627px){
+  .body-contents-container{
+    padding-right: 20px;
+  }
+}
+/* #endregion screen size compensation */

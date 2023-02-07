@@ -1,0 +1,21 @@
+.home-page-banner{
+    flex: 1;
+    background-image: url("/Assets/Themes/Blip/Images/Logo-IO-Blip.svg");
+    background-position: center;
+    background-size: 300px 145px;
+    background-repeat: no-repeat;
+    margin: auto;
+    width: 100%;
+    position: relative;
+    z-index: 0;
+  }
+
+  /* #region screen size compensation */
+  @media (max-height: 434px){
+    .body-wrapper{
+      height: 416px;
+    }
+  }
+  /* #endregion screen size compensation */
+
+

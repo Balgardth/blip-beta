@@ -1,0 +1,11 @@
+.page-server-notification-message{
+  display: block;
+  border-radius: 4px;
+  background: var(--color-mid-dark-purple);
+  text-align: center;
+  margin: 20px;
+  padding: 20px;
+  color: white;
+  position: relative;
+}
+

@@ -1,0 +1,36 @@
+
+
+.icon-msg{
+  top: 0px;
+  left: 0px;  
+  position: absolute;
+  visibility: visible;
+  margin: auto;  
+  z-index: 50;
+}
+
+.icon-msg-arrow{
+  background-image: url("/Assets/Themes/Images/msgBubbleArrowBlueBrown.svg");
+  background-repeat: no-repeat;
+  transform: rotate(90deg);
+  width: 21px;
+  height: 19px;
+  top: 7px;
+  right: -17px;
+  position: absolute;
+  z-index: 21;
+}
+.icon-msg-message{
+  background-color: #8ee1ef;
+  border: 1px solid #2d282a;
+  color: #2d282a;
+  font-weight: bold;
+  padding: 8px;
+  margin-left: 10px;
+  border-radius: 4px;
+  position: inherit;
+  z-index: 20;
+}
+
+
+

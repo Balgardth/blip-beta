@@ -1,0 +1,51 @@
+.section-container-ext{  
+  padding-bottom: 6px;  
+}
+.text-highlight-generic{
+  display: inline-block;
+  background-color: var(--color-off-white); 
+  color: var(--color-mid-grey);
+  border-radius: 4px;
+  margin: 2px;
+  padding: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  text-align: left;
+  font-size: normal;
+  letter-spacing: 1px;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  position: relative;
+}
+.text-highlight-generic-right-float-filler{  
+  display:block;
+  float:right;
+  width:60px;
+  position:relative;
+}
+.highlight-color-server{
+  background-color: var(--color-ultralight-purple);  
+  color: var(--color-mid-purple);
+}
+.highlight-color-client{
+  background-color: var(--color-ultralight-blue);  
+  color: var(--color-extradark-blue);
+}
+.highlight-color-general{
+  background-color: var(--color-ultralight-red);  
+  color: var(--color-dark-red);
+}
+
+/* #region screen size compensation */
+@media (max-height: 434px){
+  .body-wrapper{
+    height: 416px;
+  }  
+}
+/* #endregion screen size compensation */
+
+

@@ -1,0 +1,28 @@
+/**
+ * Here you can extend and customize the File-Server.js configuration parameters to fit all
+ * of your needs and wants within the scope of the framework.  The 'File-Server.js' file should
+ * ideally not be touched so updating the framework can go smoother.
+ *
+ * Rename this file from 'Configuration-Extension.js.Master' to 'Configuration-Extension.js' to use.
+ */
+"use strict";
+
+function go(blip, callback){
+
+    blip.server.loggerInfo(blip.svar.logOutputMessages.updatingConfigUsingExtension.replace(/\$<fileName>/,
+    blip.path.configurationExtFileName));
+    
+    flagError = false;
+
+    /** Examples
+    blip.svar.siteDocksBlipListen     = '192.168.1.2',
+    blip.svar.siteDocksBlipDomainName = 'blip',  // Could instead be blip.com, www.blip.com, www.blip.io, or <whatever>.blip.<whatever>
+    blip.svar.loggerOutputType = blip.ref.loggerOutputTypeOptions.consoleAndFile;
+    blip.svar['<new svar parameter name>'] = '<parameter>';
+    blip['<new parameter name>'] = '<parameter>';
+    */
+    
+    callback(flagError);
+}
+
+module.exports = {go};

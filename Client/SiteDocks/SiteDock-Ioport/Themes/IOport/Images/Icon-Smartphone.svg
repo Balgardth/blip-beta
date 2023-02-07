@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1"
+	 id="Layer_1" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1024 1024"
+	 style="enable-background:new 0 0 1024 1024;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFEFB;}
+</style>
+<desc>smartphone icon from the IconExperience.com O-Collection. Copyright by INCORS GmbH (www.incors.com).</desc>
+<path id="curve1" class="st0" d="M320,224h384v512H320V224z"/>
+<path id="curve0" class="st0" d="M288,64h448c35.3,0,64,28.8,64,64v768c0,35.2-28.8,64-64,64H288c-35.2,0-64-28.7-64-64V128
+	C224,92.7,252.8,64,288,64z M448,96c-17.6,0-32,14.4-32,32s14.4,32,32,32h128c17.6,0,32-14.4,32-32s-14.4-32-32-32H448z M512,800
+	c-35.3,0-64,28.7-64,64s28.7,64,64,64s64-28.7,64-64S547.3,800,512,800z M288,192v576h448V192H288z"/>
+</svg>
