@@ -1,8 +1,8 @@
-[![IOport Blip Logo](http://www.ioport.com/Assets/Themes/Blip/Images/Logo-IO-Blip.svg)](http://www.ioport.com/Products/Blip)
+[![IOport Blip Logo](http://www.ioport.com/Assets/Themes/Blip/Images/Logo-IO-Blip.svg)](http://www.ioport.com/)
 
 ## Installation
 
-Follow the [documentation](https://github.com/Balguardth/ioport-hub)
+Follow the [documentation](http://www.ioport.com/Documentation)
 for setup instructions and more information.
 
 ## Features
@@ -11,3 +11,7 @@ for setup instructions and more information.
   * Template Engine
   * Style Themes
   * More...
+
+## Documentation
+
+The full documentation can be found [here](http://www.ioport.com/Documentation) or once setup on the localhost server Documentation page.
