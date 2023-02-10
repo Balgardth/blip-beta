@@ -279,7 +279,7 @@
                 </div>
                 <div class="section-category-text" style="padding-top:0px;">
                     <div class="section-text-of-interest">
-                        Tested with yarn version 3.4.1!
+                        Tested with Yarn version 3.4.1!
                     </div>
                 </div>
             </div>
