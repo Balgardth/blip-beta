@@ -681,8 +681,8 @@ const listen        = blip.svar.siteDocksBlipListen;
 const listenSsl     = listen;
 const domainName    = blip.svar.siteDocksBlipDomainName;
 const domainNameSsl = domainName;
-const hosts         = ['']; // Example: ['www','downloads']
-const hostsSsl      = ['']; // ['secure'] for none
+const hosts         = ['']; // Example: ['www', 'downloads']
+const hostsSsl      = ['']; // Example: ['secure', 'ssl']
 (more...)
 
 const svar = {
