@@ -1614,7 +1614,7 @@ const svar = {
                     <div class="button-section-return-to-origin-category-wrapper"></div></a></div>
                     <div class="section-category-text">
                         There are two different types of plug-and-play site docks within Blip which are <span class="section-text-italic">IOport Hanger71</span> and user supplied.  The <span class="section-text-italic">Hanger71</span> site docks are supplied by IOport and should not be used by the end user; whereas, the user supplied site docks are
-                        supplied by the end user or a 3rd party.  Use a packagea in the <span class="section-text-italic">ExamplePackageFrames</span> as a starter springboard.
+                        supplied by the end user or a 3rd party.  Use a package in the <span class="section-text-italic">ExamplePackageFrames</span> as a starter springboard.
                     </div>
                     <div class="section-category-text">
                         <div class="section-text-of-caution"><span class="section-text-italic">Hanger71</span> is reserved for IOport supplied packages.</div>
