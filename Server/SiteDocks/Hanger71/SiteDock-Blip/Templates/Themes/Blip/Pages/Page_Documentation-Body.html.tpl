@@ -607,7 +607,7 @@
             <div class="section-category-container">
                 <div class="wrapper-generic-span-width"><span class="section-category-heading-text"><a name="ss_HTTP_Configuration"></a>Configuration</span><a href="javascript:GLOBAL.utility.doc.goToAnchor('#ss_HTTP_Configuration_toc');"><div class="button-section-return-to-origin-category-wrapper"></div></a></div>
                 <div class="section-category-text">
-                    When configuring an additional dock site there are two important files to make note of and they are <a href="javascript:GLOBAL.utility.doc.goToAnchor('#ss_ServerFrameworkStructure_Configuration_CoreServer');">Configuration-Extension.js</a> and <a href="javascript:GLOBAL.utility.doc.goToAnchor('#ss_PlugAndPlaySiteDocks_Configuration');">SiteDock-Configuration.js</a>.
+                    When configuring an additional dock site, there are two important files to make note of, and they are <a href="javascript:GLOBAL.utility.doc.goToAnchor('#ss_ServerFrameworkStructure_Configuration_CoreServer');">Configuration-Extension.js</a> and <a href="javascript:GLOBAL.utility.doc.goToAnchor('#ss_PlugAndPlaySiteDocks_Configuration');">SiteDock-Configuration.js</a>.
                 </div>
 
 <pre class="section-illustration-highlight-syntax-pre"><code class="javascript section-illustration-highlight-syntax-code">
@@ -664,7 +664,7 @@ blipSiteDock.server.httpApp.get(templatePage.url, function (req, res) {
             <div class="section-category-container">
                 <div class="wrapper-generic-span-width"><span class="section-category-heading-text"><a name="ss_HTTPS_Configuration"></a>Configuration</span><a href="javascript:GLOBAL.utility.doc.goToAnchor('#ss_HTTPS_Configuration_toc');"><div class="button-section-return-to-origin-category-wrapper"></div></a></div>
                 <div class="section-category-text">
-                    When configuring an additional dock site there are two important files to make note of and they are <a href="javascript:GLOBAL.utility.doc.goToAnchor('#ss_ServerFrameworkStructure_Configuration_CoreServer');">Configuration-Extension.js</a> and <a href="javascript:GLOBAL.utility.doc.goToAnchor('#ss_PlugAndPlaySiteDocks_Configuration');">SiteDock-Configuration.js</a>.
+                    When configuring an additional dock site, there are two important files to make note of, and they are <a href="javascript:GLOBAL.utility.doc.goToAnchor('#ss_ServerFrameworkStructure_Configuration_CoreServer');">Configuration-Extension.js</a> and <a href="javascript:GLOBAL.utility.doc.goToAnchor('#ss_PlugAndPlaySiteDocks_Configuration');">SiteDock-Configuration.js</a>.
                     Refer to the registrar documentation (external to IOport) for additional information when using them to create the certification files.
                 </div>
 <pre class="section-illustration-highlight-syntax-pre"><code class="javascript section-illustration-highlight-syntax-code">
@@ -1646,7 +1646,7 @@ const svar = {
                     <div class="button-section-return-to-origin-category-wrapper"></div></a></div>
                     <div class="section-category-text">
                         Supplied is a <span class="section-text-italic">SiteDock-Frame-Basic</span> package inside <span class="section-text-italic">ExamplePackageFrames</span> that can be used as a site dock creation springboard.  The installed version has a
-                        <span class="section-text-italic">SiteDock-Configuration.js</span> file that hold all of the configuration parameters.
+                        <span class="section-text-italic">SiteDock-Configuration.js</span> file that holds all of the configuration parameters.
                     </div>
                     <div class="section-illustration-generic">
                         <ul class="directory-tree">
