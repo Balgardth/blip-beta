@@ -24,7 +24,7 @@
             <div class="text-highlight-generic highlight-color-server">HTTPS</div>
             <div class="text-highlight-generic highlight-color-server">Page Memory Caching</div>
             <div class="text-highlight-generic highlight-color-server">Fragment Memory Caching</div>
-            <div class="text-highlight-generic highlight-color-server">Plug-and-Play Modules Ready</div>
+            <div class="text-highlight-generic highlight-color-server">Plug-and-Play Modules (Site Docks) Ready</div>
             <div class="text-highlight-generic highlight-color-server">Node.js Based</div>                        
             <div class="text-highlight-generic highlight-color-server">Static Pages</div>
             <div class="text-highlight-generic highlight-color-server">AJAX Ready</div>
