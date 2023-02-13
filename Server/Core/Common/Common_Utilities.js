@@ -1,6 +1,6 @@
 "user strict";
 
-function init(blip){
+function init(blip){    
 
     initLogger();
 
@@ -10,23 +10,24 @@ function init(blip){
             exitOnError: false,
             format: blip.server.winston.format.combine(
                 blip.server.winston.format.timestamp({format: blip.svar.logTimestamp}),
-                blip.server.winston.format.json()
+                blip.server.winston.format.json(),
+                blip.server.winston.format.printf(blip.svar.logFormat)
             ),
             transports: [
                 new(blip.server.winston.transports.DailyRotateFile)({
+                    datePattern: blip.svar.logDatePattern,
                     level: 'info',
                     filename: blip.svar.logInfoFileNamePrefix + blip.svar.logFileNameExt,
-                    dirname: __dirname + blip.svar.logDir,
-                    datePattern: blip.svar.logDatePattern,
+                    dirname: __dirname + blip.svar.logDir,                    
                     frequency: blip.svar.logFrequency,
                     maxSize: blip.svar.logMaxSize,
                     maxFiles: blip.svar.logMaxFiles
                 }),
                 new(blip.server.winston.transports.DailyRotateFile)({
+                    datePattern: blip.svar.logDatePattern,
                     level: 'error',
                     filename: blip.svar.logErrorFileNamePrefix + blip.svar.logFileNameExt,
-                    dirname: __dirname + blip.svar.logDir,
-                    datePattern: blip.svar.logDatePattern,
+                    dirname: __dirname + blip.svar.logDir,                    
                     frequency: blip.svar.logFrequency,
                     maxSize: blip.svar.logMaxSize,
                     maxFiles: blip.svar.logMaxFiles
@@ -62,8 +63,8 @@ function init(blip){
                blip.svar.loggerOutputType == blip.ref.loggerOutputTypeOptions.processAndFile)
             {
 
-                blip.server.logger.info(msgOut);
-                blip.server.logger.error(msgOut);
+                blip.server.logger.info(JSON.stringify(msgOut));
+                blip.server.logger.error(JSON.stringify(msgOut));
 
             }            
 
@@ -96,7 +97,7 @@ function init(blip){
                blip.svar.loggerOutputType == blip.ref.loggerOutputTypeOptions.processAndFile)
             {
 
-                blip.server.logger.info(msgOut);
+                blip.server.logger.info(JSON.stringify(msgOut));
 
             }
 
@@ -129,7 +130,7 @@ function init(blip){
                blip.svar.loggerOutputType == blip.ref.loggerOutputTypeOptions.processAndFile)
             {
 
-                blip.server.logger.error(msgOut);
+                blip.server.logger.error(JSON.stringify(msgOut));
 
             }
 

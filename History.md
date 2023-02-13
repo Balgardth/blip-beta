@@ -71,5 +71,12 @@
   * Added more host configuration options and URL handling.
   * Updated documentation.
 
+2.5.1 / 2023-02-13
+===================
+  * Added configuration options to edit the log format.
+  * Updated documentation.
+  * Tweaked the Blip client-side theme.
+  * Fixed bug in the URL redirect method.
+
 
     

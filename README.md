@@ -1,8 +1,8 @@
-[![IOport Blip Logo](http://www.ioport.com/Assets/Themes/Blip/Images/Logo-IO-Blip.svg)](http://www.ioport.com/)
+[![IOport Blip Logo](http://www.ioport.com/Assets/Themes/Blip/Images/Logo-IO-Blip.svg)](https://secure.ioport.com/)
 
 ## Installation
 
-Follow the [documentation](http://www.ioport.com/Documentation)
+Follow the [documentation](https://secure.ioport.com/Documentation)
 for setup instructions and more information.
 
 ## Features
@@ -14,4 +14,4 @@ for setup instructions and more information.
 
 ## Documentation
 
-The full documentation can be found [here](http://www.ioport.com/Documentation) or once setup on the localhost server '_Documentation_' page.
+The full documentation can be found [here](https://secure.ioport.com/Documentation) or once setup on the localhost server _Documentation_ page.

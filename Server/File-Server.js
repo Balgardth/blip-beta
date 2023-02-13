@@ -20,7 +20,7 @@ function initBlip(){
 
     const svar = {
         date:                              date,
-        version:                           '2.1.0', // {sip var="blipVersion" /}
+        version:                           '2.5.1', // {sip var="blipVersion" /}
         copyrightYear:                     ((date.getUTCFullYear() != '2020') ? '2020 - ' + date.getUTCFullYear(): '2020'),
         loggerOutputType:                  ref.loggerOutputTypeOptions.consoleAndFile,
         flagVerbose:                       true, // Enable/Disable detailed running log
@@ -41,6 +41,7 @@ function initBlip(){
         logTimestamp:                      'YYYY-MM-DD hh:mm:ss.SS',
         logDatePattern:                    null,
         logFrequency:                      null,
+        logFormat:                         ({ level, message, timestamp }) => {return `${timestamp} [${level}] ${message}`;},
         logMaxSize:                        '10m',
         logMaxFiles:                       '90d',
         logOutputMessages:                 {updatingConfigUsingExtension: 'Updating configuration using extension: $<fileName>',
@@ -110,7 +111,6 @@ let blip = initBlip();
  ************/
  require(blip.path.utilitiesFileName).init(blip);
  blip['utilities'] = require(blip.path.utilitiesFileName);
- blip.utilities = Object.freeze( blip.utilities);
 
 /************
  * Configuration Extension
@@ -143,7 +143,8 @@ function loadRequiredFiles(){
     // Freeze parameters
     blip.svar = Object.freeze(blip.svar);
     blip.path = Object.freeze(blip.path);
-
+    blip.utilities = Object.freeze( blip.utilities);
+    
     try{
         /************
          * Blip Site Dock File Require Initialization

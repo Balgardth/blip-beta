@@ -12,6 +12,7 @@
   left: 0px;
 }
 .body-contents{
+  padding-top: 2px;
   border-top-right-radius: 0px;
   border-top-left-radius: 0px;
 }

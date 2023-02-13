@@ -35,7 +35,7 @@ function init(blip, siteDock) {
                     }
 
                     if(!flagHostExists) {
-                        res.redirect(siteDock.svar.fullAppRootUrlSecure + req.url.slice(1,req.url.length));
+                        return res.redirect(siteDock.svar.fullAppRootUrlSecure + req.url.slice(1,req.url.length));
                     };
                 }
 
@@ -85,7 +85,7 @@ function init(blip, siteDock) {
                     }
 
                     if(!flagHostExists) {
-                        res.redirect(siteDock.svar.fullAppRootUrl + req.url.slice(1,req.url.length));
+                        return res.redirect(siteDock.svar.fullAppRootUrl + req.url.slice(1,req.url.length));
                     };
                 }
 
@@ -107,7 +107,7 @@ function init(blip, siteDock) {
      ********************/
     siteDock.server.httpApp.get('/Products/Blip/Support', function (req, res) {
 
-        res.redirect(siteDock.svar.fullAppRootUrlSecure + 'Support');
+        res.redirect(siteDock.svar.fullAppRootUrlSecure + siteDock.url.pageAssistance.slice(1,req.url.length));
 
     });
 

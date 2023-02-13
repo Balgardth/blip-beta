@@ -24,8 +24,8 @@ function init(blip){
             hostsSsl:                      hostsSsl,
             siteDomain:                    hosts[0]     + ((hosts[0] != '') ? '.' : '') + domainName,
             siteDomainSecure:              hostsSsl[0]  + ((hostsSsl[0]  != '') ? '.' : '') + domainNameSsl,
-            flagForceSiteDomain:           true,
-            flagForceSiteDomainSecure:     false,  // Requires hostsSsl != '' to be 'true'
+            flagForceSiteDomain:           true,   // Forces the site to use the siteDomain URL.  Disable to use only an IP address or allow multiple host names.
+            flagForceSiteDomainSecure:     false,  // Forces the site to use the siteDomainSecure URL.  Disable to use only an IP address or allow multiple host names.
             serverIp:                      listen,
             serverPort:                    80,
             serverSslIp:                   listenSsl,
@@ -294,6 +294,11 @@ function init(blip){
     require(blipSiteDock.path.siteDockPagesDir + "Page_Documentation").init(blip, blipSiteDock);
     require(blipSiteDock.path.siteDockPagesDir + "Page_Assistance").init(blip, blipSiteDock);
     require(blipSiteDock.path.siteDockPagesDir + "Page_Secure").init(blip, blipSiteDock);
+
+    /************
+     * Page Not Found Redirect
+     *   - Needs to be the last require(...) loaded.
+     ************/
     require(blipSiteDock.path.siteDockPagesDir + "Page_Server-Notifications").init(blip, blipSiteDock);
 
     } catch(error) {

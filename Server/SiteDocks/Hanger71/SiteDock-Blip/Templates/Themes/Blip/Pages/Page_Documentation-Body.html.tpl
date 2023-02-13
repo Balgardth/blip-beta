@@ -1551,6 +1551,19 @@ const svar = {
                     The source code can be found in the <span class="section-text-italic">Server/Core/Common/Common_Utilities.js</span> file.
                 </div>
 <pre class="section-illustration-highlight-syntax-pre"><code class="javascript section-illustration-highlight-syntax-code">
+(more...)
+logDir:                 '/../../../Logs',
+logInfoFileNamePrefix:  'Log_Server-Info',
+logErrorFileNamePrefix: 'Log_Server-Error',
+logFileNameExt:         '_%DATE%.log',
+logTimestamp:           'YYYY-MM-DD hh:mm:ss.SS',
+logDatePattern:         null,
+logFrequency:           null,
+logFormat:              ({ level, message, timestamp }) => {return `${timestamp} [${level}] ${message}`;},
+logMaxSize:             '10m',
+logMaxFiles:            '90d',
+(more...)
+
 blip.server.logger;
 blip.server.loggerInfoErr;
 blip.server.loggerInfo;
