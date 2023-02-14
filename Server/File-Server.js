@@ -20,7 +20,7 @@ function initBlip(){
 
     const svar = {
         date:                              date,
-        version:                           '2.5.1', // {sip var="blipVersion" /}
+        version:                           '2.5.2', // {sip var="blipVersion" /}
         copyrightYear:                     ((date.getUTCFullYear() != '2020') ? '2020 - ' + date.getUTCFullYear(): '2020'),
         loggerOutputType:                  ref.loggerOutputTypeOptions.consoleAndFile,
         flagVerbose:                       true, // Enable/Disable detailed running log
@@ -38,7 +38,7 @@ function initBlip(){
         logInfoFileNamePrefix:             'Log_Server-Info',
         logErrorFileNamePrefix:            'Log_Server-Error',
         logFileNameExt:                    '_%DATE%.log',
-        logTimestamp:                      'YYYY-MM-DD hh:mm:ss.SS',
+        logTimestamp:                      'YYYY-MM-DD HH:mm:ss.SS',
         logDatePattern:                    null,
         logFrequency:                      null,
         logFormat:                         ({ level, message, timestamp }) => {return `${timestamp} [${level}] ${message}`;},

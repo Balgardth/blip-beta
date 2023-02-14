@@ -78,5 +78,9 @@
   * Tweaked the Blip client-side theme.
   * Fixed bug in the URL redirect method.
 
+2.5.2 / 2023-02-13
+===================
+  * Set the default logger time to military.
+
 
     
