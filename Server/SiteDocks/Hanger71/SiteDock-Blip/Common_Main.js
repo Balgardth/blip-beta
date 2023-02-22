@@ -8,9 +8,9 @@ function init(blip, siteDock) {
 
             if(siteDock.svar.siteDomainSecure === undefined) return;
 
-            let hostAndDomain = req.headers.host;
-
             try{
+
+                let hostAndDomain = blip.utilities.initHostFromReqHeaders(req);
 
                 if(req.headers != undefined && siteDock.svar.flagForceSiteDomainSecure){
 
@@ -58,9 +58,9 @@ function init(blip, siteDock) {
 
             if(siteDock.svar.siteDomain === undefined) return;
 
-            let hostAndDomain = req.headers.host;
-
             try{
+
+                let hostAndDomain = blip.utilities.initHostFromReqHeaders(req);
 
                 if(req.headers != undefined && siteDock.svar.flagForceSiteDomain){
 

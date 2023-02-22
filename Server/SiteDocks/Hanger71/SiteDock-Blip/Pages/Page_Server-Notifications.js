@@ -56,21 +56,21 @@ function init(blip, siteDock) {
 
     let searchStr = "serverNotificationMessage";
 
-    function addPageNotFoundMessage(){
+    function addPageNotFoundMessage(url){
 
-        let message = "Error: Status code 404.  This page can not be found.";
+        let message = blip.svar.pageNotification.msg404;
 
         templatePage.addStrReplace(templateFragPageBodyId,
             [{ srcStr: new RegExp(blip.svar.sipTag.open + searchStr + blip.svar.sipTag.close),
                 rplStr: message}]);
 
-        blip.server.loggerInfoErr(message);
+        blip.server.loggerInfoErr(message + " " + url);
 
     }
 
     function addServerErrorMessage(error){
 
-        let message = "Error: Status code 500.  A server error has occurred.";
+        let message = blip.svar.pageNotification.msg500;
 
         templatePage.addStrReplace(templateFragPageBodyId,
             [{ srcStr: new RegExp(blip.svar.sipTag.open + searchStr + blip.svar.sipTag.close),
@@ -82,31 +82,53 @@ function init(blip, siteDock) {
 
     siteDock.server.httpApp.use(function (req, res) {
 
-        addPageNotFoundMessage();
+        let url = 'URL: http://' + req.headers.host + req.url;
+
+        addPageNotFoundMessage(url);        
         templatePage.sendPage( req, res );
 
     });
 
     siteDock.server.httpApp.use(function (error, req, res) {
 
-        addServerErrorMessage(error);
-        templatePage.sendPage( req, res );
+        let url = 'URL: http://' + req.headers.host + req.url;
 
-    });
+        if(error){
+
+            addServerErrorMessage(error + url);
+            templatePage.sendPage( req, res );
+            return;
+
+        }
+        
+        addServerErrorMessage('httpApp.use(...) problem with: ' + url);
+
+    });    
 
     siteDock.server.httpsApp.use(function (req, res) {
 
-        addPageNotFoundMessage();
+        let url = 'URL: https://' + req.headers.host + req.url;
+
+        addPageNotFoundMessage(url);
         templatePage.sendPage( req, res );
 
     });
 
     siteDock.server.httpsApp.use(function (error, req, res) {
 
-        addServerErrorMessage(error);
-        templatePage.sendPage( req, res );
+        let url = 'URL: https://' + req.headers.host + req.url;
 
-    });    
+        if(error){
+
+            addServerErrorMessage(error + url);
+            templatePage.sendPage( req, res );
+            return;
+
+        }
+
+        addServerErrorMessage('httpsApp.use(...) problem with: ' + url);
+
+    });
 
 }
 

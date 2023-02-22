@@ -609,12 +609,12 @@ function init(blip){
         return text;
     }
 
-    module.exports = {TemplateEngine,
-                      getContentFromTplFile,
-                      performStringSip,
-                      getLoopFragIndices,
-                      getSortFragLoops,
-                      assembleLoopFragData};
+    return {TemplateEngine,
+            getContentFromTplFile,
+            performStringSip,
+            getLoopFragIndices,
+            getSortFragLoops,
+            assembleLoopFragData};
 
 }
 

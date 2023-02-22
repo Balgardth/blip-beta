@@ -238,7 +238,7 @@ function init(blip){
 
     }
 
-    module.exports = {checkForSiteDocks};
+    return {checkForSiteDocks};
 
 }
 

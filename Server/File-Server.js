@@ -20,7 +20,7 @@ function initBlip(){
 
     const svar = {
         date:                              date,
-        version:                           '2.5.2', // {sip var="blipVersion" /}
+        version:                           '2.5.3', // {sip var="blipVersion" /}
         copyrightYear:                     ((date.getUTCFullYear() != '2020') ? '2020 - ' + date.getUTCFullYear(): '2020'),
         loggerOutputType:                  ref.loggerOutputTypeOptions.consoleAndFile,
         flagVerbose:                       true, // Enable/Disable detailed running log
@@ -47,8 +47,8 @@ function initBlip(){
         logOutputMessages:                 {updatingConfigUsingExtension: 'Updating configuration using extension: $<fileName>',
                                             loadingSiteDockRequiredFile: 'Loading site dock: $<fileName>',
                                             loadingGenericRequiredFilesErr: 'Loading required files.'},
-        pageNotification:                  {msg404: 'Server error - "404". Page not found.',
-                                            msg500_100: 'Server error - "500.100". Check error log.'},
+        pageNotification:                  {msg404: "Status code 404. This page can not be found.",
+                                            msg500: "Status code 500. A server error has occurred."},
         templateLog:                       {cached: 'cached frag results: ', raw: 'raw frag results: '},
         sipTag:                            {open: '{sip var="', close: '" /}'},
         sipLoopTag:                        {beginOpen: '{sipLoop', beginClose: '}', endOpen: '{/sipLoop', endClose: '}'},
@@ -109,8 +109,7 @@ let blip = initBlip();
  /************
  * Utilities
  ************/
- require(blip.path.utilitiesFileName).init(blip);
- blip['utilities'] = require(blip.path.utilitiesFileName);
+ blip['utilities'] = require(blip.path.utilitiesFileName).init(blip);
 
 /************
  * Configuration Extension
@@ -149,19 +148,15 @@ function loadRequiredFiles(){
         /************
          * Blip Site Dock File Require Initialization
          ************/
-        require(blip.path.siteDocksClientFileName).init(blip);
-        blip.server['siteDocks'] = Object.freeze(require(blip.path.siteDocksClientFileName));
-
-        require(blip.path.siteDockHanger71FileName).init(blip);
-        blip.server['hanger71SiteDocks'] = Object.freeze(require(blip.path.siteDockHanger71FileName));
+        blip.server['siteDocks'] = Object.freeze(require(blip.path.siteDocksClientFileName).init(blip));
+        blip.server['hanger71SiteDocks'] = Object.freeze(require(blip.path.siteDockHanger71FileName).init(blip));
 
         function loadFramework(siteDocks){
 
             /************
              * Common Files
              ************/
-            require(blip.path.templateAssemblerFileName).init(blip);
-            blip['templateAssembler'] = Object.freeze(require(blip.path.templateAssemblerFileName));
+            blip['templateAssembler'] = Object.freeze(require(blip.path.templateAssemblerFileName).init(blip));
 
             /************
              * Load Site Docks

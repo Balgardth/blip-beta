@@ -13,7 +13,7 @@ function init(blip){
         const hostsSsl      = ['']; // ['secure'] for none
 
         const svar = {
-            version:                       '2.5.2', // {sip var="siteDockVersion" /}
+            version:                       '2.5.3', // {sip var="siteDockVersion" /}
             serverSiteDockName:            siteDockName,
             clientSiteDock:                siteDockName,
             clientStyleTheme:              'Blip',

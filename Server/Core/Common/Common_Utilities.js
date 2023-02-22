@@ -158,6 +158,28 @@ function init(blip){
 
     }
 
+    function initHostFromReqHeaders(req) {
+
+        if (req.headers != undefined) {
+
+            if (req.headers.host != undefined) {
+
+                return req.headers.host;
+
+            } else {
+
+                throw Error("Host not found in request header.");
+
+            }
+
+        } else {
+
+            throw Error("Header not found in request.");
+
+        }
+
+    }
+
     function storeReqLogParams(req, siteDock = null){
 
         blip.server.appConnQueReqLogging = {
@@ -292,8 +314,17 @@ function init(blip){
 
     }
 
-    module.exports = {JSONDecodeURIComponent, returnEmptyResults, splitFillNoResults,
-                      storeReqLogParams, logRequest, requestFailedHandler, argIntegrityCheck, generatePassword};
+    return {
+        JSONDecodeURIComponent,
+        returnEmptyResults,
+        splitFillNoResults,
+        storeReqLogParams,
+        logRequest,
+        requestFailedHandler,
+        argIntegrityCheck,
+        generatePassword,
+        initHostFromReqHeaders
+    };
                           
 }
 

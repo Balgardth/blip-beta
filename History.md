@@ -82,5 +82,12 @@
 ===================
   * Set the default logger time to military.
 
+2.5.3 / 2023-02-22
+===================
+  * Added logger addition to page error handler.  URLs will now be included.
+  * Added error handling to req header filtering.
+  * Refactored require _.init(..)_ method relating to _Core_ and _SiteDock_ files.
+    - Note: Functionality remains unchanged.
+
 
     
