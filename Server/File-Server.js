@@ -20,20 +20,33 @@ function initBlip(){
 
     const svar = {
         date:                              date,
-        version:                           '2.5.3', // {sip var="blipVersion" /}
+        appName:                           'IOport Blip',
+        appPackageName:                    'ioport-blip',
+        version:                           '2.5.4', // {sip var="blipVersion" /}
         copyrightYear:                     ((date.getUTCFullYear() != '2020') ? '2020 - ' + date.getUTCFullYear(): '2020'),
         loggerOutputType:                  ref.loggerOutputTypeOptions.consoleAndFile,
-        flagVerbose:                       true, // Enable/Disable detailed running log
-        flagCache:                         false, // Enable/Disable all caching
+        flagVerbose:                       true,  // Enable/Disable detailed running log        
+        flagCache:                         false, // Enable/Disable all caching        
+        flagSiteDockInstallOnStart:        true,  // Enable/Disable installing new site dock packages when the server starts.
+        flagSiteDockLoadHanger71OnStart:   true,  // Enable/Disable loading Hanger71 site docks when the server starts.
         testDelay:                         0, // For simulating server request loads.
         favExt:                            '.png',
         cssExt:                            '.css',
         jsExt:                             '.js',
-        siteDocksPackageFileExt:           '.zip.zbm',
+        registrationFileNameExt:           Object.freeze('.reg.json'),
+        siteDocksPackageFileExts:          Object.freeze({zbm: '.zip.zbm', tbm: '.zip.tbm' }),        
+        siteDockTypes:                     Object.freeze({hanger71: 0, thirdParty: 1}),
+        package:                           {type:{
+                                                hub:              0,
+                                                app:              1,
+                                                siteDockHanger71: 2
+                                              }
+                                           },
         siteDocksPackageExtractCheckDelay: 1000, // Check every minute
         siteDocksPackageExtractTimeout:    600000, // Try for 10 minutes
         siteDocksBlipListen:               '127.0.0.1',
-        siteDocksBlipDomainName:           'localhost',
+        
+        siteDocksBlipDomainName:           'localhost',        
         logDir:                            '/../../../Logs',
         logInfoFileNamePrefix:             'Log_Server-Info',
         logErrorFileNamePrefix:            'Log_Server-Error',
@@ -46,6 +59,7 @@ function initBlip(){
         logMaxFiles:                       '90d',
         logOutputMessages:                 {updatingConfigUsingExtension: 'Updating configuration using extension: $<fileName>',
                                             loadingSiteDockRequiredFile: 'Loading site dock: $<fileName>',
+                                            loadingSiteDockFramework: 'Loading site dock framework: $<fileName>',
                                             loadingGenericRequiredFilesErr: 'Loading required files.'},
         pageNotification:                  {msg404: "Status code 404. This page can not be found.",
                                             msg500: "Status code 500. A server error has occurred."},
@@ -55,24 +69,36 @@ function initBlip(){
         sipLoopSplitTag:                   '{sipLoopSplit /}',
         sipLoopSplitTagVars:               {open: '{sipLoopSplit', close: '/}'},
         sssplitTag:                        '{sipSplit /}',
-        siteDockInstanceNames:             []
+        siteDockInstanceNames:             [],
+        publicSalt:                        null                                            
     };
 
     const path = {
-        modules:                        __dirname + '/node_modules/',
-        serverClientDir:                __dirname + '/../Client/SiteDocks/',
-        coreDir:                        __dirname + '/Core/',
-        coreCommonDir:                  __dirname + '/Core/Common/',
-        configurationExtFileName:       __dirname + '/Configuration-Extension',
-        utilitiesFileName:              __dirname + '/Core/Common/Common_Utilities',
-        templateAssemblerFileName:      __dirname + '/Core/Common/Common_Template-Assembler',
-        siteDocksDir:                   __dirname + '/SiteDocks/',
-        siteDockHanger71Dir:            __dirname + '/SiteDocks/Hanger71/',
-        siteDocksInstalledPackagesDir:  __dirname + '/SiteDocks/InstalledPackages/',
-        siteDocksFramesDir:             __dirname + '/SiteDocks/ExamplePackageFrames/',
-        siteDocksConfigFileName:        'SiteDock-Configuration',
-        siteDockHanger71FileName:       __dirname + '/SiteDocks/Hanger71SiteDocks',
-        siteDocksClientFileName:        __dirname + '/SiteDocks/SiteDocks'
+        appDir:                                __dirname + '/../',
+        hubDir:                                __dirname + '/../../',
+        distDir:                               __dirname + '/../../Dist/',        
+        dotRegDir:                             __dirname + '/../../Dist/.reg/',
+        dotAppDir:                             __dirname + '/../.app/',
+        dotDockDir:                            '/.dock/',
+        criteriaFileName:                      'criteria.json',        
+        identifierFileName:                    'identifier.json',
+        nodePackageFileName:                   'package.json',
+        modules:                               __dirname + '/node_modules/',
+        serverClientDir:                       __dirname + '/../Client/SiteDocks/',
+        coreDir:                               __dirname + '/Core/',
+        coreCommonDir:                         __dirname + '/Core/Common/',
+        configurationExtFileName:              __dirname + '/Configuration-Extension',
+        utilitiesFileName:                     __dirname + '/Core/Common/Common_Utilities',
+        templateAssemblerFileName:             __dirname + '/Core/Common/Common_Template-Assembler',        
+        siteDocksDir:                          __dirname + '/SiteDocks/',
+        siteDocksDeployDir:                    __dirname + '/SiteDocks/Deploy/',
+        siteDockHanger71Dir:                   __dirname + '/SiteDocks/Hanger71/',
+        siteDockHanger71DeployDir:             __dirname + '/SiteDocks/Hanger71/Deploy/',
+        siteDocksInstalledPackagesDir:         __dirname + '/SiteDocks/InstalledPackages/',
+        siteDockHanger71InstalledPackagesDir:  __dirname + '/SiteDocks/Hanger71/InstalledPackages/',
+        siteDocksFramesDir:                    __dirname + '/SiteDocks/ExamplePackageFrames/',
+        siteDocksConfigFileName:               'SiteDock-Configuration',
+        siteDocksFileName:                     __dirname + '/SiteDocks/SiteDocks'
     };
 
     const server = {
@@ -92,16 +118,18 @@ function initBlip(){
         sizeOf:               Object.freeze(require('sizeof').sizeof),
         unzip:                Object.freeze(require('extract-zip')),
         yauzl:                Object.freeze(require('yauzl')),
+        crypto:               Object.freeze(require('crypto')),
         logger:               null,
         loggerInfo:           null,
         loggerErr:            null,
-        loggerInfoErr:        null,
+        loggerInfoErr:        null,        
         appConnQue:           null,           // Use for global tmp data.
         appConnQueReqLogging: {tmp: 'tmp'},   // Holds http and https connection params req and res
         loadFramework:        null
     };
 
     return { ref, svar, path, server };
+
 }
 
 let blip = initBlip();
@@ -110,31 +138,40 @@ let blip = initBlip();
  * Utilities
  ************/
  blip['utilities'] = require(blip.path.utilitiesFileName).init(blip);
+ blip.utilities.integrityCheck(function(error){
 
-/************
- * Configuration Extension
- ************/
-if(blip.server.fs.existsSync(blip.path.configurationExtFileName + '.js')){
+    if(error) return;
+    loadConfigurationExt();
 
-    let updateConfiguration = require(blip.path.configurationExtFileName);
+ });
 
-    updateConfiguration.go(blip, function(error){
+ /************
+  * Configuration Extension
+  ************/
+ function loadConfigurationExt(){
+    
+    if(blip.server.fs.existsSync(blip.path.configurationExtFileName + '.js')){
 
-        if(error){
+        let updateConfiguration = require(blip.path.configurationExtFileName);
 
-            blip.server.loggerErr(blip.svar.logOutputMessages.updatingConfigUsingExtension.replace(/\$<fileName>/,
-            blip.path.configurationExtFileName));
+        updateConfiguration.go(blip, function(error){
 
-        }
+            if(error){
+
+                blip.server.loggerErr(blip.svar.logOutputMessages.updatingConfigUsingExtension.replace(/\$<fileName>/,
+                blip.path.configurationExtFileName));                
+
+            }
+
+            loadRequiredFiles();
+
+        });
+
+    } else {
 
         loadRequiredFiles();
 
-    });
-
-} else {
-
-    loadRequiredFiles();
-
+    }
 }
 
 function loadRequiredFiles(){
@@ -143,44 +180,33 @@ function loadRequiredFiles(){
     blip.svar = Object.freeze(blip.svar);
     blip.path = Object.freeze(blip.path);
     blip.utilities = Object.freeze( blip.utilities);
-    
+
     try{
         /************
          * Blip Site Dock File Require Initialization
          ************/
-        blip.server['siteDocks'] = Object.freeze(require(blip.path.siteDocksClientFileName).init(blip));
-        blip.server['hanger71SiteDocks'] = Object.freeze(require(blip.path.siteDockHanger71FileName).init(blip));
+        blip.server['siteDocks'] = Object.freeze(require(blip.path.siteDocksFileName).init(blip));
 
-        function loadFramework(siteDocks){
+        /************
+         * Common Files
+         ************/
+        blip['templateAssembler'] = require(blip.path.templateAssemblerFileName).init(blip);
+        
+        if(blip.svar.flagSiteDockInstallOnStart) {
 
-            /************
-             * Common Files
-             ************/
-            blip['templateAssembler'] = Object.freeze(require(blip.path.templateAssemblerFileName).init(blip));
+            if(blip.svar.flagSiteDockLoadHanger71OnStart) 
+                blip.server.siteDocks.checkForSiteDocks(blip.svar.siteDockTypes.hanger71);
 
-            /************
-             * Load Site Docks
-             ************/
-            var siteDocksLength = siteDocks.length;
+            blip.server.siteDocks.checkForSiteDocks(blip.svar.siteDockTypes.thirdParty);
 
-            if(siteDocksLength > 0){
+        } else {
 
-                for(var x = 0; x < siteDocksLength; x++){
+            if(blip.svar.flagSiteDockLoadHanger71OnStart) 
+                blip.templateAssembler.loadFramework(blip.server.siteDocks.checkForSiteDocks(blip.svar.siteDockTypes.hanger71, true));
 
-                    require(siteDocks[x].path).init(blip);
-
-                    blip.server.loggerInfo(
-                        blip.svar.logOutputMessages.loadingSiteDockRequiredFile.replace(/\$<fileName>/,
-                        siteDocks[x].name));
-
-                }
-
-            }
-
+            blip.templateAssembler.loadFramework(blip.server.siteDocks.checkForSiteDocks(blip.svar.siteDockTypes.thirdParty, true));
+            
         }
-
-        blip.server.loadFramework = Object.freeze(loadFramework);
-        blip.server.hanger71SiteDocks.checkForSiteDocks();
 
     } catch (error){
 

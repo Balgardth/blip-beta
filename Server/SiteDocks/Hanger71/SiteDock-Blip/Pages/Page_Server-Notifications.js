@@ -6,7 +6,7 @@ function init(blip, siteDock) {
     let pageDescription = 'Page notification message.';
     let pageKeywords = 'blip, ioport, ioportblip, page notification';
 
-    var templatePage = new blip.templateAssembler.TemplateEngine(siteDock, );
+    var templatePage = new blip.templateAssembler.TemplateEngine(siteDock);
 
     // header
     var htmlIncludes = {

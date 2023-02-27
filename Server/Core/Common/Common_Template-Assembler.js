@@ -2,13 +2,33 @@
 
 function init(blip){
 
+    function loadFramework(siteDocks){
+
+        var siteDocksLength = siteDocks.length;
+
+        if(siteDocksLength > 0){
+
+            for(var x = 0; x < siteDocksLength; x++){
+
+                require(siteDocks[x].path).init(blip);
+
+                if(blip.svar.flagVerbose) blip.server.loggerInfo(
+                    blip.svar.logOutputMessages.loadingSiteDockFramework.replace(/\$<fileName>/,
+                    siteDocks[x].name));
+
+            }
+
+        }
+
+    }
+
     function performStringSip(str, tagVarName, strReplace){
 
         let strSearch = new RegExp(blip.svar.sipTag.open + tagVarName + blip.svar.sipTag.close, 'g');
 
         return str.toString().replace(strSearch, strReplace);
     }
-    
+
     function getSortFragLoops(str){
 
         let fragIndices = getLoopFragIndices(str);
@@ -78,7 +98,7 @@ function init(blip){
         return sortedFragKeys;
 
     }
-    
+
     function getLoopFragIndices(str){
 
         let regExpStrBegin = new RegExp('{sipLoop([ ]+?)id="(.*?)"}', 'gi');
@@ -366,7 +386,7 @@ function init(blip){
         updateFragCache(id, data, flagCache=true) {
             this.frag[id].cache.enabled = flagCache;
             this.frag[id].cache.data = data;
-        }       
+        }
         disableFrag(id, obj) {
             this.frag[id].render.enabled.on = false;
             this.frag[id].render.disable.on = true;
@@ -375,7 +395,7 @@ function init(blip){
                 this.frag[id].render.disable.timeSpan = obj.timeSpan;
                 this.frag[id].render.disable.startTime = new Date();
             }
-        }        
+        }
         enableFrag(id, obj) {
             this.frag[id].render.enabled.on = true;
             this.frag[id].render.enabled.on = false;
@@ -446,9 +466,9 @@ function init(blip){
 
                 replaceIdent(obj);
 
-            }            
+            }
 
-            function replaceIdent(item){                
+            function replaceIdent(item){
 
                 for(let x=0; x < _this.frag[id].strReplace.length; x++){
 
@@ -468,7 +488,7 @@ function init(blip){
                 te_sendTextHtmlPage(res, msg);
             } else {
                 te_sendText(res, msg);
-            }            
+            }
         }
         /* Checks to see if page is cached and will send if it is. */
         sendPageCacheHandler(req, res, id){
@@ -483,7 +503,7 @@ function init(blip){
             }
         }
         sendPage(req, res, sendResponseHeader=true) {
-            
+
             var _this = this;
             blip.utilities.storeReqLogParams(req, _this.siteDock);
             var html = '';
@@ -609,12 +629,15 @@ function init(blip){
         return text;
     }
 
-    return {TemplateEngine,
-            getContentFromTplFile,
-            performStringSip,
-            getLoopFragIndices,
-            getSortFragLoops,
-            assembleLoopFragData};
+    return {
+        TemplateEngine,
+        getContentFromTplFile,
+        performStringSip,
+        getLoopFragIndices,
+        getSortFragLoops,
+        assembleLoopFragData,
+        loadFramework
+    };
 
 }
 

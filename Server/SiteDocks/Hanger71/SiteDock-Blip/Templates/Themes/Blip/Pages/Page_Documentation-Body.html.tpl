@@ -353,6 +353,7 @@
                     $ yarn updatehub<br>
                     $ yarn updateblip
                 </div>
+                <div class="section-illustration-title">Example</div>
             </div>
 
         </div>
@@ -1556,7 +1557,7 @@ logDir:                 '/../../../Logs',
 logInfoFileNamePrefix:  'Log_Server-Info',
 logErrorFileNamePrefix: 'Log_Server-Error',
 logFileNameExt:         '_%DATE%.log',
-logTimestamp:           'YYYY-MM-DD hh:mm:ss.SS',
+logTimestamp:           'YYYY-MM-DD HH:mm:ss.SS',
 logDatePattern:         null,
 logFrequency:           null,
 logFormat:              ({ level, message, timestamp }) => {return `${timestamp} [${level}] ${message}`;},

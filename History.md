@@ -89,5 +89,15 @@
   * Refactored require _.init(..)_ method relating to _Core_ and _SiteDock_ files.
     - Note: Functionality remains unchanged.
 
-
-    
+2.5.4 / 2023-02-27
+===================
+  * Refactored the init(...) process for _Core_ and _SiteDock_ scripts.
+    - Note: Code integrity is maintained.
+  * Added error handling to the _SiteDocks_ loading method that catches repeat installation attempts of the same site dock.
+    - Renaming the site dock directory that the package was installed into will prevent this error notification.
+  * Added blip.svar.flagSiteDockInstallOnStart and blip.svar.flagSiteDockLoadHanger71OnStart.
+    - Enable/disable:
+      - Installation of new packages on startup.
+      - Loading of Hanger71 site docks on startup.
+  * Added Hanger71 site dock package integrity.  All Hanger71 related packages are registered and managed within the hub application space.
+    - Note: This helps ensure that the Hanger71 space is used how it is intended.

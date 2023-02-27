@@ -10,10 +10,10 @@ function init(blip){
         const domainName    = blip.svar.siteDocksBlipDomainName;
         const domainNameSsl = domainName;
         const hosts         = ['']; // Example: ['www','downloads']
-        const hostsSsl      = ['']; // ['secure'] for none
+        const hostsSsl      = ['']; // Example: ['secure', 'ssl']
 
         const svar = {
-            version:                       '2.5.3', // {sip var="siteDockVersion" /}
+            version:                       '2.5.4', // {sip var="siteDockVersion" /}
             serverSiteDockName:            siteDockName,
             clientSiteDock:                siteDockName,
             clientStyleTheme:              'Blip',
@@ -208,8 +208,6 @@ function init(blip){
     }
 
     let blipSiteDock = initSiteDockParams();
-    blip.svar.siteDockInstanceNames.push(blipSiteDock.svar.serverSiteDockName);
-
 
     try{
 
@@ -219,7 +217,17 @@ function init(blip){
     if(blipSiteDock.svar.serverIp !== undefined && blipSiteDock.svar.serverIp !== ''){
 
         blipSiteDock.server.httpApp = new blip.server.express();
-        blipSiteDock.server.httpSever = blip.server.http.createServer(blipSiteDock.server.httpApp).listen(blipSiteDock.svar.serverPort, blipSiteDock.svar.serverIp);
+
+        try{
+            
+            blipSiteDock.server.httpSever = blip.server.http.createServer(blipSiteDock.server.httpApp).listen(blipSiteDock.svar.serverPort, blipSiteDock.svar.serverIp);
+
+        } catch(error){
+
+            blipSiteDock = null;
+            return blip.server.loggerErr("Server " + blipSiteDock.svar.serverSiteDockName + " http://" + hostsString + blipSiteDock.svar.domainName + " is not listening on " + blipSiteDock.svar.serverIp + ":" + blipSiteDock.svar.serverPort + ' ' + error);
+
+        }
 
         blipSiteDock.server.httpApp.use('/Assets', blip.server.express.static(blip.path.serverClientDir + blipSiteDock.svar.clientSiteDock + '/'));
         blipSiteDock.server.httpApp.use('/Sandbox', blip.server.express.static(blipSiteDock.path.sandboxDir));
@@ -242,7 +250,7 @@ function init(blip){
 
         }
 
-        if(blip.svar.flagVerbose) blip.server.loggerInfo("Server http://" + hostsString + blipSiteDock.svar.domainName + " is listening on " + blipSiteDock.svar.serverIp + ":" + blipSiteDock.svar.serverPort);
+        if(blip.svar.flagVerbose) blip.server.loggerInfo("Server " + blipSiteDock.svar.serverSiteDockName + " http://" + hostsString + blipSiteDock.svar.domainName + " is listening on " + blipSiteDock.svar.serverIp + ":" + blipSiteDock.svar.serverPort);
 
     }
 
@@ -259,7 +267,17 @@ function init(blip){
             //passphrase: blipSiteDock.svar.sslPassphrase
         };
 
-        blipSiteDock.server.httpsServer = blip.server.https.createServer(options, blipSiteDock.server.httpsApp).listen(blipSiteDock.svar.serverSslPort, blipSiteDock.svar.serverSslIp);
+        try{
+
+            blipSiteDock.server.httpsServer = blip.server.https.createServer(options, blipSiteDock.server.httpsApp).listen(blipSiteDock.svar.serverSslPort, blipSiteDock.svar.serverSslIp);
+
+        } catch(error){
+
+            blipSiteDock = null;
+            return blip.server.loggerErr(" SSL server " + blipSiteDock.svar.serverSiteDockName + " https://" + hostsSslString + blipSiteDock.svar.domainName + " is not listening on " + blipSiteDock.svar.serverSslIp + ":" + blipSiteDock.svar.serverSslPort + ' ' + error);
+
+        }
+
         blipSiteDock.server.httpsApp.set('trust proxy', 1);
 
         blipSiteDock.server.httpsApp.use('/Assets', blip.server.express.static(blip.path.serverClientDir + blipSiteDock.svar.clientSiteDock + '/'));
@@ -281,7 +299,7 @@ function init(blip){
 
         }
 
-        if(blip.svar.flagVerbose) blip.server.loggerInfo("SSL server https://" + hostsSslString + blipSiteDock.svar.domainName + " is listening on " + blipSiteDock.svar.serverSslIp + ":" + blipSiteDock.svar.serverSslPort);
+        if(blip.svar.flagVerbose) blip.server.loggerInfo("SSL server " + blipSiteDock.svar.serverSiteDockName + " https://" + hostsSslString + blipSiteDock.svar.domainName + " is listening on " + blipSiteDock.svar.serverSslIp + ":" + blipSiteDock.svar.serverSslPort);
     }
 
     require(blipSiteDock.path.siteDockCommonDir + "Common_Main").init(blip, blipSiteDock);
@@ -301,9 +319,11 @@ function init(blip){
      ************/
     require(blipSiteDock.path.siteDockPagesDir + "Page_Server-Notifications").init(blip, blipSiteDock);
 
+    blip.svar.siteDockInstanceNames.push(blipSiteDock.svar.serverSiteDockName);
+
     } catch(error) {
 
-        blip.server.loggerErr('Error: Loading required files in ' + blipSiteDock.svar.serverSiteDockName + ' SiteDock-Configuration. ' + error);
+        blip.server.loggerErr('Loading required files in ' + blipSiteDock.svar.serverSiteDockName + ' SiteDock-Configuration. ' + error);
 
     }
 

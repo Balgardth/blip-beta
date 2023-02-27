@@ -41,7 +41,7 @@ function init(blip, siteDock) {
 
             } catch(err) {
 
-                blip.server.loggerErr("Error: Secure domain host error. " + err);
+                blip.server.loggerErr(err + " Using https in Common_Main.");
                 return;
 
             }
@@ -56,7 +56,7 @@ function init(blip, siteDock) {
 
         siteDock.server.httpApp.use(function (req, res, next) {
 
-            if(siteDock.svar.siteDomain === undefined) return;
+            if(siteDock.svar.siteDomain === undefined) return;            
 
             try{
 
@@ -91,7 +91,7 @@ function init(blip, siteDock) {
 
             } catch(err) {
 
-                blip.server.loggerErr("Error: Domain host error. " + err);
+                blip.server.loggerErr(err + " Using http in Common_Main.");
                 return;
 
             }
@@ -101,7 +101,7 @@ function init(blip, siteDock) {
         });
 
     }
-
+    
     /********************
      *  Redirect Examples
      ********************/
@@ -116,7 +116,7 @@ function init(blip, siteDock) {
         res.redirect(siteDock.svar.fullAppRootUrl);
 
     });
-    
+
 }
 
 
