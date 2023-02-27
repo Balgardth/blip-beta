@@ -859,7 +859,7 @@ function init(blip){
         
         let siteDockObj = siteDockCleanData(reg.app.package.siteDocks); 
 
-        if(!siteDockObj)return true;
+        if(!siteDockObj)return false;
 
         reg.app.package.siteDocks = siteDockObj;
 
@@ -877,28 +877,25 @@ function init(blip){
 
         function siteDockCleanData(siteDockObj){
 
-            let flagEntryNotFound = false;
             let tmpSiteDockRegInfo = [];
 
             for(let x = 0; x < siteDockObj.length; x++){
 
                 for(let y = 0; y < identsVerified.length; y++){
 
-                    if(siteDockObj[x].package.name == identsVerified[y]){
+                    if(siteDockObj[x].package.name == identsVerified[y] && identsVerified[y] != blip.svar.appPackageName){
                         tmpSiteDockRegInfo.push(siteDockObj[x]);
-                    } else {
-                        flagEntryNotFound = true;
                     }
 
                 }
 
             }
 
-            if(flagEntryNotFound){
+            if(tmpSiteDockRegInfo.length != siteDockObj.length){
                 return tmpSiteDockRegInfo;
             }
 
-            return flagEntryNotFound;
+            return false;
 
         }
 
