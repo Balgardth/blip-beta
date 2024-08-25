@@ -101,3 +101,7 @@
       - Loading of Hanger71 site docks on startup.
   * Added Hanger71 site dock package integrity.  All Hanger71 related packages are registered and managed within the hub application space.
     - Note: This helps ensure that the Hanger71 space is used how it is intended.
+
+2.5.5 / 2024-08-24
+===================
+  * Tweaked the document tabs to keep current with platform devices.
