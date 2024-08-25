@@ -22,7 +22,7 @@ function initBlip(){
         date:                              date,
         appName:                           'IOport Blip',
         appPackageName:                    'ioport-blip',
-        version:                           '2.5.4', // {sip var="blipVersion" /}
+        version:                           '2.5.5', // {sip var="blipVersion" /}
         copyrightYear:                     ((date.getUTCFullYear() != '2020') ? '2020 - ' + date.getUTCFullYear(): '2020'),
         loggerOutputType:                  ref.loggerOutputTypeOptions.consoleAndFile,
         flagVerbose:                       true,  // Enable/Disable detailed running log        
