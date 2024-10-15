@@ -366,26 +366,28 @@ var GLOBAL = {
     return parts.join(' ');
   }
 
-  function loadCssFile(filePath){
+  function loadCssFile(filePath, id = null){
 
-    var file=document.createElement("link");
+    var file = document.createElement("link");
+    if(id) file.setAttribute("id", "link_" + id);
     file.setAttribute("rel", "stylesheet");
     file.setAttribute("type", "text/css");
     file.setAttribute("href", filePath);
 
-    if (typeof file !="undefined")
+    if (typeof file != "undefined")
       document.getElementsByTagName("head")[0].appendChild(file);
 
   }
 
-  function loadJsFile(filePath){
+  function loadJsFile(filePath, id = null){
 
-    var file=document.createElement("link");
+    var file = document.createElement("script");
+    if(id) file.setAttribute("id", "script_" + id);
     file.setAttribute("rel", "script");
     file.setAttribute("type", "text/javascript");
-    file.setAttribute("href", filePath);
+    file.setAttribute("src", filePath);
 
-    if (typeof file !="undefined")
+    if (typeof file != "undefined")
       document.getElementsByTagName("head")[0].appendChild(file);
 
   }
