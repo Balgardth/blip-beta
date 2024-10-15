@@ -191,34 +191,43 @@ function init(blip){
 
     function storeReqLogParams(req, siteDock = null){
 
-        blip.server.appConnQueReqLogging = {
-            siteDock: siteDock.svar.serverSiteDockName,
-            url: req.url || 'NA',
-            method: req.method || 'NA',
-            ip: req.ip || 'NA',
-            host: ((req.headers != undefined) ? req.headers.host || 'NA' : 'NA'),
-            referer: ((req.headers != undefined) ? req.headers.referer || 'NA' : 'NA'),
-            lang: ((req.headers != undefined) ? req.headers['accept-language'] || 'NA' : 'NA'),
-            userAgent: ((req.headers != undefined) ? req.headers['user-agent'] || 'NA' : 'NA'),
-            cookieId: ((req.headers != undefined) ? req.headers.cookie || 'NA' : 'NA')
-        };
+      if(blip.server.appConnQueReqLogging.length > blip.server.appConnQueReqLoggingBufferLimit){
+        blip.server.loggerInfo.value("Warning: Connection logging buffer exceeded the size limit.");
+        return;
+      }
+
+      blip.server.appConnQueReqLogging.push({
+          siteDock: siteDock.svar.serverSiteDockName,
+          url: req.url || 'NA',
+          method: req.method || 'NA',
+          ip: req.ip || 'NA',
+          host: ((req.headers != undefined) ? req.headers.host || 'NA' : 'NA'),
+          referer: ((req.headers != undefined) ? req.headers.referer || 'NA' : 'NA'),
+          lang: ((req.headers != undefined) ? req.headers['accept-language'] || 'NA' : 'NA'),
+          userAgent: ((req.headers != undefined) ? req.headers['user-agent'] || 'NA' : 'NA'),
+          cookieId: ((req.headers != undefined) ? req.headers.cookie || 'NA' : 'NA')
+      });
 
     }
 
-    function logRequest(req = null, msg = null, siteDock = null){
+    function logRequest(req = null, msg = null, siteDock = null) {
 
-        if(req != null){
-
-            if(req != 'stored'){
-                storeReqLogParams(req, siteDock);
-            }
-
-            blip.server.loggerInfo(blip.server.appConnQueReqLogging);
-
+      if(req != null) {
+  
+        if(req != 'stored') {
+          storeReqLogParams(req, siteDock);
         }
-
-        if(msg != null) blip.server.loggerInfo(msg);
-
+  
+        for(let x = 0; x < blip.server.appConnQueReqLogging.length; x++){
+          blip.server.loggerInfo(blip.server.appConnQueReqLogging[x]);
+        }
+  
+        blip.server.appConnQueReqLogging = [];
+  
+      }
+  
+      if(msg != null) blip.server.loggerInfo(msg);
+  
     }
 
     function requestFailedHandler(res = null, err = null){
