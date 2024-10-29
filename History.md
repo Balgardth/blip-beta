@@ -110,3 +110,7 @@
 ===================
   * Updated the SiteDock-Blip loadCssFile and loadJsFile functions in Common/Main.js with more options.
   * Added a logging output buffer to logRequest in Common_Utilities.js.
+
+2.5.7 / 2024-10-29
+===================
+  * Updated the Yarn packageManager version.
