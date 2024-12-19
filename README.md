@@ -1,5 +1,3 @@
-[![IOport Blip Logo](http://www.ioport.com/Assets/Themes/Blip/Images/Logo-IO-Blip.svg)](https://secure.ioport.com/)
-
 ## Installation
 
 Follow the [documentation](https://secure.ioport.com/Documentation)
